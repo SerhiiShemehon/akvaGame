@@ -34,11 +34,11 @@ function ready() {
             count++;
             left=left+5;
             playerTwo.style.left = left+'%';
-            if(left === 95){
-                clearInterval(roundFinish);
+            if(left == 95){
                 second.style.display = 'block';
                 win.textContent = 'Молодец! Ты выиграл!';
                 hod.textContent = 'Правильно ответил: '+count+' раз.';
+                clearInterval(roundFinish);
             }
         }else{
             result.style.background = 'rgba(255,0,0,0.5)';
@@ -73,6 +73,7 @@ function ready() {
     })
     //time
         var t = 60;
+        var roundFinish;
     function getTime() {
         function roundTime() {
             t = t - 1;
@@ -85,7 +86,7 @@ function ready() {
                 return;
             }
         }
-        var roundFinish = setInterval(function() {
+        roundFinish = setInterval(function() {
             roundTime();
         },1000);
     }
